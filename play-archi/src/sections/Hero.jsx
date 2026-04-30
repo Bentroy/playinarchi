@@ -63,23 +63,22 @@ export default function Hero() {
         <h1
           className="hero-anim font-display leading-[0.88] text-white mb-8"
           style={{
-            fontSize: "clamp(4.5rem, 13vw, 12rem)",
-            letterSpacing: "-0.01em",
+            fontSize: "clamp(2.5rem, 6.5vw, 5.5rem)",
+            letterSpacing: "0.01em",
             animationDelay: "0.35s",
           }}
-        >
-          WHERE
-          <br />
-          <span className="text-play-red">FUN</span>
-          <br />
-          MEETS
-          <br />
-          DESIGN
+        ><p>
+             WHERE
+          <span className="text-play-red"> FUN</span>
+        </p>
+        <p>
+          MEETS DESIGN
+        </p>
         </h1>
 
         {/* Sub */}
         <p
-          className="hero-anim text-white/55 text-lg max-w-md leading-relaxed mb-10 font-light"
+          className="hero-anim text-white/55 text-lg max-w-md leading-relaxed mb-5 font-light"
           style={{ animationDelay: "0.55s" }}
         >
           Nigeria's boldest Design-Build firm. We craft breathtaking
@@ -110,7 +109,7 @@ export default function Hero() {
 
         {/* Stat row */}
         <div
-          className="hero-anim hidden md:flex gap-12 mt-16 pt-8 border-t border-white/10"
+          className="hero-anim hidden md:flex gap-12 mt-10 pt-8 border-t border-white/10"
           style={{ animationDelay: "0.95s" }}
         >
           {[
