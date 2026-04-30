@@ -16,8 +16,8 @@ export default function Cursor() {
 
     const lerp = (a, b, t) => a + (b - a) * t;
     const tick = () => {
-      rx = lerp(rx, mx, 0.1);
-      ry = lerp(ry, my, 0.1);
+      rx = lerp(rx, mx, 0.25);
+      ry = lerp(ry, my, 0.25);
       ring.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
       raf = requestAnimationFrame(tick);
     };

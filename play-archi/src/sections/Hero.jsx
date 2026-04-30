@@ -61,9 +61,9 @@ export default function Hero() {
 
         {/* Headline */}
         <h1
-          className="hero-anim font-display leading-[0.88] text-white mb-8"
+          className="hero-anim font-display leading-[0.88] text-white mb-5"
           style={{
-            fontSize: "clamp(2.5rem, 6.5vw, 5.5rem)",
+            fontSize: "clamp(4.5rem, 6.5vw, 5.5rem)",
             letterSpacing: "0.01em",
             animationDelay: "0.35s",
           }}
