@@ -102,7 +102,7 @@ export default function Projects() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {visible.map((p, i) => {
+          {visible.map((p) => {
             const isLarge = p.span === "large";
             const isMed   = p.span === "medium";
             return (
