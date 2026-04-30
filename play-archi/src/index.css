@@ -71,7 +71,6 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 /* ─── Noise overlay ─────────────────────────────── */
 .noise::after {
   content: "";
