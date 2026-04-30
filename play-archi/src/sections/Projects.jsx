@@ -6,6 +6,7 @@ const PROJECTS = [
     sub: "Luxury 5-Bed Detached PLAY Box",
     type: "Design & Build", location: "Lekki, Lagos", year: "2023",
     span: "large",
+    img: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80",
     palette: { base: "#120005", accent: "#E8002D" },
     desc: "A bespoke 5-bedroom PLAY Box at The Address Estate — one of Lagos's most prestigious addresses. Bold massing, dramatic fenestration, and PLAY's signature interior craftsmanship throughout.",
   },
@@ -14,6 +15,7 @@ const PROJECTS = [
     sub: "7-Tower Mixed-Use Development",
     type: "Design & Build", location: "Victoria Island, Lagos", year: "2024",
     span: "medium",
+    img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
     palette: { base: "#05050f", accent: "#E8002D" },
     desc: "Seven landmark towers rising on Sinari Daranijo Road, VI. Luxury 1-bed apartments from ₦45M. Architectural drama at every level.",
   },
@@ -22,6 +24,7 @@ const PROJECTS = [
     sub: "Signature Residential PLAY Box",
     type: "Design & Build", location: "Lagos", year: "2022",
     span: "medium",
+    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
     palette: { base: "#050f05", accent: "#E8002D" },
     desc: "The third in PLAY's own signature 'B-series' of spec homes. Celebrated on completion — a showcase of everything PLAY stands for.",
   },
@@ -30,6 +33,7 @@ const PROJECTS = [
     sub: "Modern Sensational Design",
     type: "Design Only", location: "Maryland, Lagos", year: "2023",
     span: "small",
+    img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=700&q=80",
     palette: { base: "#0a0800", accent: "#E8002D" },
     desc: "A daring new collection design for Maryland. Striking geometric facade with PLAY's unmistakable drama.",
   },
@@ -38,6 +42,7 @@ const PROJECTS = [
     sub: "Contemporary Residential",
     type: "Design & Supervision", location: "Abuja, FCT", year: "2024",
     span: "small",
+    img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=80",
     palette: { base: "#08000a", accent: "#E8002D" },
     desc: "PLAY ventures north — bringing their Lagos energy to the nation's capital. A fascinating new design redefining Abuja residential luxury.",
   },
@@ -46,6 +51,7 @@ const PROJECTS = [
     sub: "9-Unit Residential Development",
     type: "Design & Build", location: "Lekki Ajah, Lagos", year: "2023",
     span: "medium",
+    img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
     palette: { base: "#00080a", accent: "#E8002D" },
     desc: "Nine beautifully designed 5-bedroom detached houses behind the Mercedes-Benz main dealership. Now sold.",
   },
@@ -78,7 +84,7 @@ export default function Projects() {
               style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)" }}
             >
               PLAY BOXES
-              <br />& PROJECTS
+              <br />&amp; PROJECTS
             </h2>
           </div>
 
@@ -115,15 +121,26 @@ export default function Projects() {
                 onMouseEnter={() => setHovered(p.id)}
                 onMouseLeave={() => setHovered(null)}
               >
-                {/* BG */}
+                {/* Real photo BG */}
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+
+                {/* Dark overlay — always present, deepens on hover */}
                 <div
-                  className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
-                  style={{ background: `linear-gradient(145deg, ${p.palette.base} 0%, #0a0a0a 100%)` }}
+                  className="absolute inset-0 transition-opacity duration-500"
+                  style={{
+                    background: `linear-gradient(to top, ${p.palette.base} 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.25) 100%)`,
+                    opacity: hovered === p.id ? 0.97 : 0.82,
+                  }}
                 />
 
                 {/* Grid lines */}
                 <div
-                  className="absolute inset-0 opacity-[0.05]"
+                  className="absolute inset-0 opacity-[0.04]"
                   style={{
                     backgroundImage: `linear-gradient(rgba(232,0,45,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(232,0,45,0.5) 1px, transparent 1px)`,
                     backgroundSize: "40px 40px",
@@ -132,7 +149,7 @@ export default function Projects() {
 
                 {/* Corner triangle */}
                 <div
-                  className="absolute top-0 right-0 opacity-60"
+                  className="absolute top-0 right-0 opacity-70"
                   style={{
                     width: 0, height: 0,
                     borderStyle: "solid",
@@ -144,7 +161,7 @@ export default function Projects() {
 
                 {/* Number watermark */}
                 <div
-                  className="absolute bottom-0 right-0 font-display text-white/[0.04] leading-none select-none"
+                  className="absolute bottom-0 right-0 font-display text-white/[0.06] leading-none select-none"
                   style={{ fontSize: isLarge ? "14rem" : "8rem" }}
                 >
                   {p.id}
@@ -163,19 +180,19 @@ export default function Projects() {
                   >
                     {p.title}
                   </h3>
-                  <p className="text-white/45 text-sm mb-3">{p.sub}</p>
+                  <p className="text-white/55 text-sm mb-3">{p.sub}</p>
 
                   {/* Description on hover */}
                   <div
                     className="overflow-hidden transition-all duration-500"
                     style={{ maxHeight: hovered === p.id ? "120px" : "0px", opacity: hovered === p.id ? 1 : 0 }}
                   >
-                    <p className="text-white/55 text-xs leading-relaxed mb-4">{p.desc}</p>
+                    <p className="text-white/65 text-xs leading-relaxed mb-4">{p.desc}</p>
                   </div>
 
-                  <div className="flex items-center justify-between pt-3 border-t border-white/[0.08]">
-                    <span className="text-white/30 text-xs tracking-wider">{p.location}</span>
-                    <span className="text-white/30 text-xs">{p.year}</span>
+                  <div className="flex items-center justify-between pt-3 border-t border-white/[0.12]">
+                    <span className="text-white/40 text-xs tracking-wider">{p.location}</span>
+                    <span className="text-white/40 text-xs">{p.year}</span>
                   </div>
                 </div>
 
